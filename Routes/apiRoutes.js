@@ -16,7 +16,7 @@ module.exports = function (app) {
         }
     });
 
-    app.delete('/api/notes', function (req, res) {
+    app.delete('/api/notes/:id', function (req, res) {
         db.length = 0;
         clearDb.length = 0;
 
