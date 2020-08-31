@@ -19,7 +19,8 @@ module.exports = function (app) {
     });
 
     app.delete('/api/notes/:id', function (req, res) {
-        req.params.filter(deleteNote(id));
+        let noteId = req.params.id
+        // req.params.filter(deleteNote(id));
         db.length = 0;
         clearDb.length = 0;
 
@@ -29,11 +30,6 @@ module.exports = function (app) {
     });
 
 
-    function deleteNote(req, res) {
-        req.params.id
-        return id >= db;
-        
-    }
-
+   
 }
 
