@@ -1,5 +1,7 @@
-var db = require('../db/db.js')
-var clearDb = require('../db/notes.js')
+const db = require('../db/db.js')
+const clearDb = require('../db/notes.js')
+const fs = require('fs');
+const { filter } = require('../db/notes.js');
 
 module.exports = function (app) {
 
@@ -17,6 +19,7 @@ module.exports = function (app) {
     });
 
     app.delete('/api/notes/:id', function (req, res) {
+        req.params.filter(deleteNote(id));
         db.length = 0;
         clearDb.length = 0;
 
@@ -25,4 +28,12 @@ module.exports = function (app) {
         })
     });
 
+
+    function deleteNote(req, res) {
+        req.params.id
+        return id >= db;
+        
+    }
+
 }
+
